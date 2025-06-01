@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Convite de casamento de Gabriel & [Nome da Noiva]. Junte-se a nós neste dia especial!" />
+    <meta name="author" content="Gabriel" />
+    <title>Convite de Casamento - Gabriel & [Nome]</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Google Fonts (Exemplo: Playfair Display e Lato) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-pink-50 text-gray-800">
+
+<header class="text-center py-10 bg-pink-100 shadow-md">
+    <h1 class="text-4xl md:text-5xl font-bold">Gabriel & Nikita</h1>
+    <p class="text-lg mt-2">03 de Dezembro de 2025 às 11h</p>
+    <p class="text-md">Estamos felizes em convidar você para este momento especial</p>
+</header>
+
+<main class="p-6 max-w-3xl mx-auto">
+    <section class="mb-10 text-center">
+        <h2 class="text-2xl font-semibold mb-4">O Evento</h2>
+        <p class="mb-2">Nosso casamento acontecerá no dia 03 de dezembro de 2025, às 11h da manhã.</p>
+        <p>Local: [Nome do local], [Endereço completo]</p>
+    </section>
+
+    <section class="mb-10 text-center">
+        <h2 class="text-2xl font-semibold mb-4">Confirmação de Presença</h2>
+        <p>Por favor, confirme sua presença até 15 de novembro de 2025.</p>
+        <a href="[Link para formulário ou WhatsApp]" class="inline-block mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition">
+            Confirmar Presença
+        </a>
+    </section>
+
+    <section class="text-center">
+        <h2 class="text-2xl font-semibold mb-4">Contagem Regressiva</h2>
+        <div id="countdown" class="text-3xl font-bold text-pink-600"></div>
+    </section>
+</main>
+
+<footer class="text-center py-6 bg-pink-100 mt-12">
+    <p>Com amor, Gabriel & Nikita</p>
+</footer>
+
+<!-- Script de contagem regressiva -->
+<script>
+    const countdownEl = document.getElementById('countdown');
+    const weddingDate = new Date('2025-12-03T11:00:00').getTime();
+
+    const updateCountdown = () => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+            countdownEl.innerHTML = "Já casamos! 🎉";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
+</body>
+</html>
